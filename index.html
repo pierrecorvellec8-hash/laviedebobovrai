@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Vie de Bobo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+body {margin:0;font-family:'Poppins',sans-serif;background:#fff0f5;color:#4a4a4a;}
+header {background:#ffc0cb;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.15);position:sticky;top:0;z-index:1000;}
+header h1 {font-family:'Playfair Display', serif;font-size:28px;color:#5c2a42;margin:0;}
+nav {display:flex;gap:25px;align-items:center;position:relative;}
+nav a {text-decoration:none;color:#4a4a4a;font-weight:500;cursor:pointer;transition: transform 0.2s ease,color 0.2s ease;}
+nav a:hover {color:#c2185b;transform:scale(1.1);}
+.cart-icon {font-size:22px;cursor:pointer;}
+.menu-item {position:relative;}
+.submenu {display:none;position:absolute;top:40px;left:0;background:white;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.15);flex-direction:column;padding:10px 0;min-width:180px;z-index:100;}
+.submenu a {padding:10px 20px;color:#5a5a5a;font-weight:400;}
+.submenu a:hover {background:#ffdde8;color:#c2185b;transform:scale(1.05);}
+.menu-item.active .submenu {display:flex;}
+main {padding:60px 20px;text-align:center;}
+h2 {font-size:32px;font-family:'Playfair Display',serif;color:#5c2a42;}
+p {font-size:18px;color:#444;max-width:800px;margin:0 auto 20px;line-height:1.7;}
+img {max-width:320px;border-radius:16px;margin-bottom:20px;box-shadow:0 3px 10px rgba(0,0,0,0.2);}
+.price {font-size:22px;color:#c2185b;font-weight:bold;margin-bottom:10px;}
+button {background:#c2185b;color:white;border:none;padding:10px 25px;font-size:16px;border-radius:8px;cursor:pointer;transition: transform 0.2s ease, background 0.2s ease;}
+button:hover {transform:scale(1.1);background:#a0134d;}
+.out-of-stock {background:#bbb;color:#666;cursor:not-allowed;transform:none !important;}
+.hero {padding:100px 20px;background:#ffe3ed;text-align:center;border-radius:20px;margin-bottom:60px;}
+.hero h2 {font-size:45px;color:#c2185b;}
+.hero h3 {font-size:24px;color:#5c2a42;font-weight:500;margin-top:10px;}
+.meilleures-ventes {margin-top:70px;}
+.produits {display:flex;justify-content:center;flex-wrap:wrap;gap:40px;}
+.carte-produit {background:white;border-radius:16px;box-shadow:0 4px 10px rgba(0,0,0,0.1);padding:20px;width:300px;}
+.carte-produit:hover {transform:translateY(-5px);}
+.carte-produit p {font-size:15px;color:#666;min-height:70px;}
+.contact-info {background:white;display:inline-block;padding:25px 40px;border-radius:12px;box-shadow:0 3px 8px rgba(0,0,0,0.1);text-align:left;line-height:1.8;}
+.contact-info strong {color:#c2185b;}
+#panier {background:white;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.1);padding:25px;max-width:420px;margin:0 auto;}
+#panier ul {list-style:none;padding:0;margin:0 0 15px;}
+#panier li {text-align:left;border-bottom:1px solid #eee;padding:8px 0;}
+section {display:none;}
+section.active {display:block;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>La Vie de Bobo</h1>
+<nav>
+  <a data-target="accueil">Accueil</a>
+  <div class="menu-item">
+    <a>Nos produits</a>
+    <div class="submenu">
+      <a data-target="bobo-gentil">Bobo gentil</a>
+      <a data-target="bobo-enerve">Bobo énervé</a>
+      <a data-target="bobo-triste">Bobo triste</a>
+      <a data-target="bobo-chou">Bobo chou</a>
+      <a data-target="beau-bobo">Beau bobo</a>
+      <a data-target="chaton-bobo">Chaton bobo</a>
+    </div>
+  </div>
+  <a data-target="contact">Contact</a>
+  <a data-target="infos">En savoir plus</a>
+  <span class="cart-icon" data-target="panier">🛒</span>
+</nav>
+</header>
+
+<main>
+<section id="accueil" class="active">
+  <div class="hero">
+    <h2>Le monde des Boboooooooooooos</h2>
+    <h3>Choisissez le vôtre 💕</h3>
+  </div>
+  <div class="meilleures-ventes">
+    <h2>✨ Meilleures ventes ✨</h2>
+    <div class="produits">
+      <div class="carte-produit">
+        <img src="IMG_6238.JPG" alt="Beau bobo">
+        <h3>Beau Bobo</h3>
+        <div class="price">37.99€</div>
+        <p>Le plus beau des bobos, quel tchatcheur, impossible de ne pas tomber sous le charme de ce merveilleux bobo...</p>
+        <button data-target="beau-bobo">Voir plus</button>
+      </div>
+      <div class="carte-produit">
+        <img src="IMG_8991.jpeg" alt="Bobo gentil">
+        <h3>Bobo Gentil</h3>
+        <div class="price">29.99€</div>
+        <p>Ce bobo est le meilleur qualité prix, il ne vous embêtera pas pendant vos séances de sport ou votre travail. Il restera à sa place et est très doux pendant vos siestes.</p>
+        <button data-target="bobo-gentil">Voir plus</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bobo-gentil">
+  <h2>Bobo Gentil</h2>
+  <img src="IMG_8991.jpeg" alt="Bobo gentil">
+  <div class="price">29.99€</div>
+  <p>Ce bobo est le meilleur qualité prix, il ne vous embêtera pas pendant vos séances de sport ou pendant votre travail, il restera à sa place. De plus il est très doux ce qui sera agréable pendant vos siestes.</p>
+  <button class="add" data-name="Bobo Gentil" data-price="29.99">Ajouter au panier</button>
+</section>
+
+<section id="bobo-enerve">
+  <h2>Bobo Énervé</h2>
+  <img src="image-bobo-enerve.jpg" alt="Bobo énervé">
+  <div class="price">35.99€</div>
+  <p>Faites attention à ce bobo car il est loin d'être inoffensif, il pourrait vous mordre ou ne plus vous parler pendant quelques temps. Prenez vos distances 5 minutes et tout se passera pour le mieux du monde.</p>
+  <button class="add" data-name="Bobo Énervé" data-price="35.99">Ajouter au panier</button>
+</section>
+
+<section id="bobo-triste">
+  <h2>Bobo Triste</h2>
+  <img src="IMG_1250.JPG" alt="Bobo triste">
+  <div class="price">19.99€</div>
+  <p>Un mauvais bobo, il ne faut pas lui demander ce qu'il y a. Ce bobo ne dira absolument rien, laissez-le seul et il ira peut-être mieux. Portez-lui compagnie sinon, ça pourra aussi marcher...</p>
+  <button class="add" data-name="Bobo Triste" data-price="19.99">Ajouter au panier</button>
+</section>
+
+<section id="bobo-chou">
+  <h2>Bobo Chou</h2>
+  <img src="image-bobo-chou.jpg" alt="Bobo chou">
+  <div class="price">127990.99€</div>
+  <p>Le plus mignon des bobos, il existe en un unique exemplaire, malheureusement il est actuellement en rupture de stock. Il se trouve rue de la bonneterie à Avignon, trouvez-le et capturez-le.</p>
+  <button class="out-of-stock">Rupture de stock</button>
+</section>
+
+<section id="beau-bobo">
+  <h2>Beau Bobo</h2>
+  <img src="IMG_6238.JPG" alt="Beau bobo">
+  <div class="price">37.99€</div>
+  <p>Le plus beau des bobos, quel tchatcheur, impossible de ne pas tomber sous le charme de ce merveilleux bobo. Je vous laisse imaginer les précieux moments intimes que vous passerez en sa compagnie.</p>
+  <button class="add" data-name="Beau Bobo" data-price="37.99">Ajouter au panier</button>
+</section>
+
+<section id="chaton-bobo">
+  <h2>Chaton Bobo</h2>
+  <img src="image-chaton-bobo.jpg" alt="Chaton bobo">
+  <div class="price">15.99€</div>
+  <p>Un petit chaton mais il fait partie de la famille des bobos, tout poilu, tout mignon, tout minuscule. Attention à ne pas lui donner trop de croquettes, il ne faudra pas changer son fauteuil...</p>
+  <button class="add" data-name="Chaton Bobo" data-price="15.99">Ajouter au panier</button>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-info">
+    <p><strong>Mail :</strong> bobo.levrai@gmail.com</p>
+    <p><strong>Téléphone :</strong> 01.02.03.04.05</p>
+    <p><strong>Adresse :</strong> Rue de la Bonneterie, 84000 Avignon (aka la meilleure ville de France)</p>
+  </div>
+</section>
+
+<section id="infos">
+  <h2>En savoir plus</h2>
+  <p>La Vie de Bobo est une boutique ouverte par un bobo qui ne demandait qu'à avoir plus d'amis et de bobos en sa compagnie. Après avoir trouvé son bobo chéri, il veut aider les personnes à trouver leur bobo car tout le monde mérite son bobo. Choisissez le bobo qui vous conviendrait le mieux, ils sont garantis toute la vie et remboursés.</p>
+</section>
+
+<section id="panier">
+  <h2>🛒 Votre panier</h2>
+  <ul id="liste-panier"></ul>
+  <p id="total">Total : 0.00€</p>
+</section>
+</main>
+
+<script>
+const menuItem = document.querySelector(".menu-item");
+menuItem.addEventListener("click", e => { e.stopPropagation(); menuItem.classList.toggle("active"); });
+document.body.addEventListener("click", ()=>{ menuItem.classList.remove("active"); });
+
+const links = document.querySelectorAll("[data-target]");
+const sections = document.querySelectorAll("section");
+links.forEach(link => {
+  link.addEventListener("click", () => {
+    const target = document.getElementById(link.dataset.target);
+    sections.forEach(sec => sec.classList.remove("active"));
+    target.classList.add("active");
+    window.scrollTo({top:0, behavior:"smooth"});
+  });
+});
+
+const panier = [];
+const boutonsAdd = document.querySelectorAll(".add");
+const listePanier = document.getElementById("liste-panier");
+const totalPanier = document.getElementById("total");
+
+boutonsAdd.forEach(btn => {
+  btn.addEventListener("click", ()=>{
+    const nom = btn.dataset.name;
+    const prix = parseFloat(btn.dataset.price);
+    panier.push({nom, prix});
+    majPanier();
+    document.getElementById("panier").classList.add("active");
+  });
+});
+
+function majPanier(){
+  listePanier.innerHTML="";
+  let total = 0;
+  panier.forEach(item=>{
+    const li = document.createElement("li");
+    li.textContent = `${item.nom} — ${item.prix.toFixed(2)}€`;
+    listePanier.appendChild(li);
+    total += item.prix;
+  });
+  totalPanier.textContent = `Total : ${total.toFixed(2)}€`;
+}
+</script>
+
+</body>
+</html>
